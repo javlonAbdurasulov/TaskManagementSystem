@@ -11,10 +11,12 @@ namespace TaskManagementSystem.Models
 {
     internal class User
     {
+        Regex password = new Regex(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$");
+        Regex email = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        
+        
         public Guid Id = Guid.NewGuid();//{ get; set; }
         public string Name { get; set; }
-                Regex password = new Regex(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$");
-                Regex email = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         public string Email
         {
             get
@@ -51,7 +53,7 @@ namespace TaskManagementSystem.Models
                 }
             }
         }
-
+        public List<Tasks> tasks = new List<Tasks>();
         
     }
 }

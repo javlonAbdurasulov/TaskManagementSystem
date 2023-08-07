@@ -30,7 +30,7 @@ namespace TaskManagementSystem.Services.Classes
             throw new NotImplementedException();
         }
 
-        public void Update(Guid id)
+        public void Update(Task task,Guid id)
         {
             throw new NotImplementedException();
         }

@@ -31,8 +31,15 @@ namespace TaskManagementSystem.Manager
         public void Do(User obj)
         {
             List<Tasks> tasks = _taskCRUD.GetAll();
-
+            foreach (Tasks task in tasks)
+            {
+                Console.WriteLine(task.Header+$"\nID: {task.Id}\n");
+            }
+            Console.WriteLine("Viberite Id:");
+            var IdTasksForDo = Guid.Parse(Console.ReadLine());
+            var TasksForDo = tasks.Where(x=>x.Id==IdTasksForDo).FirstOrDefault();
             
+            TasksForDo.status = Tasks.Status.progress;
 
         }
     }
